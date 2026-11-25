@@ -23,6 +23,13 @@
             position: absolute;
             cursor: pointer;
         }
+        #trojan_horse {
+            width: 135px;
+            height: 135px;
+            background: white;
+            position: absolute;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -32,6 +39,7 @@
 
     <div id="gameArea">
         <img id="square" src="aeneas.png">
+        <img id="trojan_horse" src="trojan_horse.png">
     </div>
 
     <script>
@@ -47,6 +55,13 @@
             square.style.left = x + "px";
             square.style.top = y + "px";
         }
+  function moveTrojan_horse() {
+            const x = Math.random() * 348;
+            const y = Math.random() * 247;
+
+            trojan_horse.style.left = x + "px";
+            trojan_horse.style.top = y + "px";
+        }
 
         square.addEventListener("click", () => {
             score++;
@@ -55,6 +70,12 @@
         });
 
         moveSquare();
+        trojan_horse.addEventListener("click", () => {
+            score+= 10;
+            scoreText.textContent = score;
+            moveTrojan_horse();
+        });
+        moveTrojan_horse();
     </script>
 
 </body>
