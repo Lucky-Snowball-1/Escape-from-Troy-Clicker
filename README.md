@@ -1,1 +1,62 @@
 # Escape-from-Troy-Clicker
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Escape from TROY Clicker</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #gameArea {
+            width: 500px;
+            height: 400px;
+            border: 2px solid black;
+            margin: auto;
+            position: relative;
+        }
+
+        #square {
+            width: 102px;
+            height: 153px;
+            background: white;
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Escape from TROY Clicker</h1>
+    <h2>Score: <span id="score">0</span></h2>
+
+    <div id="gameArea">
+        <img id="square" src="aeneas.png">
+    </div>
+
+    <script>
+        const square = document.getElementById("square");
+        const scoreText = document.getElementById("score");
+
+        let score = 0;
+
+        function moveSquare() {
+            const x = Math.random() * 348;
+            const y = Math.random() * 247;
+
+            square.style.left = x + "px";
+            square.style.top = y + "px";
+        }
+
+        square.addEventListener("click", () => {
+            score++;
+            scoreText.textContent = score;
+            moveSquare();
+        });
+
+        moveSquare();
+    </script>
+
+</body>
+</html>
